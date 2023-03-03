@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
-import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
-import { globalStyles } from "shared/theme/GlobalStyles";
-import { ErrorBoundary } from "./ErrorBoundary";
-import { ETheme } from "shared/config/enums";
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
+import { globalStyles } from 'shared/theme/GlobalStyles';
+import { ErrorBoundary } from './ErrorBoundary';
+import { ETheme } from 'shared/config/enums';
+import { Routers } from './Routers';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const App: React.FC = () => {
   const [themeClass, setThemeClass] = useState<ETheme>(ETheme.dark);
@@ -17,7 +18,9 @@ const App: React.FC = () => {
     <ErrorBoundary>
       <BrowserRouter basename="/">
         <Router>
-          <div className={`${globalStyles} ${themeClass}`}></div>
+          <div className={`${globalStyles} ${themeClass}`}>
+            <Routers />
+          </div>
         </Router>
       </BrowserRouter>
     </ErrorBoundary>
